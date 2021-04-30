@@ -1,0 +1,50 @@
+<%- include("layouts/navbar") %>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-7">
+                <a href="/tambah-data_mahasiswa" class="btn btn-primary">Tambah Data Mahasiswa</a>
+                <% if(session.successMsg) { %>
+                    <div class="alert alert-success mt-3">
+                        <%= session.successMsg %>
+                    </div>
+                    <% } %>
+                        <table class="table table-bordered border-primary table-hover mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% let i = 1; %>
+                                    <% dataMahasiswa.forEach(data => { %>
+                                        <tr>
+                                            <th>
+                                                <%= i %>
+                                            </th>
+                                            <td>
+                                                <%= data.nama %>
+                                            </td>
+                                            <td>
+                                                <%= data.email %>
+                                            </td>
+                                            <td>
+                                                <a href="/edit-data_mahasiswa/<%= data.id %> " class="badge bg-success text-light">Edit</a>
+                                                <form action="/hapus-data_mahasiswa/<%= data.id %>" method="POST" class="d-inline-block formDelete">
+                                                    <button class=" badge bg-danger " type="submit ">Hapus</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% i++ %>
+                                            <% }) %>
+                            </tbody>
+                        </table>
+                        <% if (dataMahasiswa.length == 0) { %>
+                            <p class="text-center">Data tidak ada!</p>
+                            <% } %>
+            </div>
+        </div>
+    </div>

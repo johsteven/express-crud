@@ -1,0 +1,26 @@
+<%- include("layouts/navbar") %>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Edit Data Mahasiswa</h2>
+                <form action="" method="POST">
+                    <input type="hidden" name="id">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID</label>
+                        <input type="text" class="form-control" id="id" readonly value="<%= dataMahasiswaByID.id %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" value="<%= dataMahasiswaByID.nama %>" autocomplete="off" autofocus required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<%= dataMahasiswaByID.email %>" autocomplete="off" required>
+                        <div id="emailHelp" class="form-text">Kami tidak pernah memberitahu email anda kepada siapapun.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
