@@ -22,7 +22,7 @@ app.use(session({
 }));
 app.use(flash());
 
-// Home Page
+// Home
 app.get("/", home.index);
 
 // Data Mahasiswa
